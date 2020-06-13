@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Site</title>
+</head>
+<body>
+    <h2 id="title" >JAVASCRIPT PRACTICE</h2>
+    <button id="btn">Click me</button>
+    <br><br><br>
+    <p class="list">This is statement </p>
+    <p class="list">This is statement </p>
+    <p class="list">This is statement </p>
+    <p class="list">This is statement </p>
+    <button id="bt2">Change</button>
+    <br><br><br>
+    <button id="profilebtn">Profile</button>
+
+    <!--empty html elements below-->
+    <p id="box"></p>
+    <p id="box2"></p>
+    <p id="box3"></p>
+
+    <input type="text"  id="user">
+    <button id="userName">Enter</button>
+    <p id="box4"></p>
+    <br><br>
+    <h2> Add your Grocery list </h2>
+    <input type="text" id="addList">
+    <button id="add">Add</button>
+    <p id="box5"></p>
+
+    <script>
+     //changing color of the title
+     //first,add an Event Listener
+     document.getElementById('btn').addEventListener('click', changeColor);
+     // add fuction
+     function changeColor () {
+      document.getElementById("title").style.color = "orange";
+     }
+     //change the style of the element by classname
+     //add an event listener
+      document.getElementById("bt2").addEventListener('click', newStyle);
+      //now create a function
+      function newStyle () {
+       let things = document.getElementsByClassName("list");
+       for (i = 0; i < things.length; i++) {
+           things[0].style.backgroundColor = "red"; 
+           things[1].style.backgroundColor = "blue";
+           things[2].style.backgroundColor = "green";
+           things[3].style.backgroundColor = "yellow";
+       }
+      }
+
+      //add profile using innerHTML
+      //Add an event listener
+      document.getElementById('profilebtn').addEventListener('click', displayProfile);
+      //create a function
+      function displayProfile () {
+       let firstName = "Raj";
+       document.getElementById("box").innerHTML = "My name is " + firstName;
+       let age = 16;
+       document.querySelector("#box2").innerHTML = "I am " + age + " years old";
+       let info = "My Web Page";
+       document.querySelector("#box3").innerHTML = "This is my" + info;
+      }
+
+      //get name with greetings
+      //get username input
+      let name = document.getElementById("user");
+      //add event listener
+      document.getElementById("userName").addEventListener("click", greeting);
+      //create a function
+      function greeting () {
+        if (name.value === "") {
+         alert("please fill out the empty field");
+        }
+        else {
+            document.getElementById("box4").innerHTML = "Hello " + name.value + " welcome to my web page";
+        }
+      }
+
+      //user adds thing using array
+      //learn about array method
+      //get user input
+      let item = document.getElementById("addList");
+      //add event listener
+      document.getElementById('add').addEventListener('click', addItem);
+      let groceryList = ["apples","cheese","milk","bread"];
+      let displayList = groceryList.toString();
+      document.querySelector("#box5").innerHTML = displayList;
+      //create function
+      function addItem() {
+          let newItem = item.value;
+          groceryList.push(newItem);
+          let newList = groceryList.toString();
+          document.querySelector("#box5").innerHTML = newList;
+          item.value = '';
+      }
+      
+
+
+    </script>
+    
+</body>
+</html>
